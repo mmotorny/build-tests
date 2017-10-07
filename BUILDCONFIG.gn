@@ -1,0 +1,17 @@
+# Copyright (c) 2017, Maksym Motornyy. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be found 
+# in the LICENSE file.
+
+set_default_toolchain("//build/toolchain/xcode:xcode")
+
+set_defaults("executable") {
+  configs = [
+    "//build:source-tree-absolute-includes",
+  ]
+}
+
+set_defaults("source_set") {
+  configs = [
+    "//build:source-tree-absolute-includes",
+  ]
+}
