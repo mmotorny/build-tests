@@ -7,6 +7,6 @@ executable("executable") {
     "main.cpp",
   ]
   deps = [
-    "//source-set",
+    "//build_tests/source_set",
   ]
 }
