@@ -20,7 +20,7 @@ pipeline {
           }
         }
         stage('Windows') {
-          agent { label 'macos' }
+          agent { label 'linux' }
           steps {
             echo 'TODO'
           }
