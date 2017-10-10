@@ -28,7 +28,7 @@ pipeline {
       }
     }
     stage('Notify') {
-      agent any
+      agent none
       steps {
         emailext(
             subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
