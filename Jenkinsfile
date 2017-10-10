@@ -19,6 +19,12 @@ pipeline {
             sh 'build_output/executable'
           }
         }
+        stage('Windows') {
+          agent { label 'macos' }
+          steps {
+            echo 'TODO'
+          }
+        }
       }
     }
   }
