@@ -1,7 +1,7 @@
 pipeline {
   agent none
   stages {
-    stage('Build and test') {
+    stage('Test') {
       parallel {
         stage('Linux') {
           agent { label 'linux' }
