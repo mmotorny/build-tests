@@ -21,6 +21,10 @@ pipeline {
             }
             
             
+          },
+          "": {
+            echo 'Boo!'
+            
           }
         )
       }
