@@ -1,32 +1,12 @@
 pipeline {
-  agent any
+  agent none
   stages {
-    stage('Build') {
+    stage('Build and test') {
+      agent { label 'macos' }
       steps {
-        parallel(
-          "Linux": {
-            node(label: 'linux') {
-              sh 'gn gen build_output/'
-              sh 'ninja -C build_output/'
-              sh 'build_output/executable'
-            }
-            
-            
-          },
-          "macOS": {
-            node(label: 'macos') {
-              sh 'gn gen build_output/'
-              sh 'ninja -C build_output/'
-              sh 'build_output/executable'
-            }
-            
-            
-          },
-          "": {
-            echo 'Boo!'
-            
-          }
-        )
+        sh 'gn gen build_output/'
+        sh 'ninja -C build_output/'
+        sh 'build_output/executable'
       }
     }
   }
