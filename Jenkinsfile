@@ -3,13 +3,26 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'gn gen build_output/'
-        sh 'ninja -C build_output/'
-      }
-    }
-    stage('Test') {
-      steps {
-        sh 'build_output/executable'
+        parallel(
+          "Linux": {
+            node(label: 'linux') {
+              sh 'gn gen build_output/'
+              sh 'ninja -C build_output/'
+              sh 'build_output/executable'
+            }
+            
+            
+          },
+          "macOS": {
+            node(label: 'macos') {
+              sh 'gn gen build_output/'
+              sh 'ninja -C build_output/'
+              sh 'build_output/executable'
+            }
+            
+            
+          }
+        )
       }
     }
   }
