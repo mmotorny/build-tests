@@ -16,7 +16,8 @@ import("//build/toolchains/autodetect.gni")
 # Default configs for all compilers.
 default_compiler_configs = [
   # See https://github.com/mmotorny/build/blob/master/configs/README.md.
-  "//build/configs/cxx_standard:cxx_17",
+  "//build/configs/cxx_standard:cxx_17_or_higher",
+  "//build/configs/exceptions:enable",
   "//build/configs/include_dirs:source_tree_absolute",
   "//build/configs/warnings:pedantic",
   "//build/configs/warnings:treat_as_errors",
