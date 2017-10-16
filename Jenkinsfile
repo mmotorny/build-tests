@@ -22,9 +22,9 @@ pipeline {
         stage('Windows') {
           agent { label 'windows' }
           steps {
-            bat 'gn gen build_output/'
-            bat 'ninja -C build_output/'
-            bat 'build_output/executable'
+            powershell 'gn gen build_output/'
+            powershell 'ninja -C build_output/'
+            powershell 'build_output/executable'
           }
         }
       }
